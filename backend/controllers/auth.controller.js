@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'; //a JavaScript library used for hashing passwords.
 import User from '../models/user.model.js';
+import generateTokenAndSetCookie from '../utils/generateToken.js';
 
 //SIGN UP USER
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -37,10 +38,9 @@ export const signup = async (req, res) => {
 
         if(newUser) {
             //Generate JWT token
-
-
-            
-            await newUser.save(); //save to the database;
+            generateTokenAndSetCookie(newUser._id, res);
+            //Save user to the database;
+            await newUser.save(); 
             res.status(201).json({
                 _id: newUser._id,
                 fullName: newUser.fullName,
