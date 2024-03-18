@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcryptjs'; //a JavaScript library used for hashing passwords.
 import User from '../models/user.model.js';
 
 //SIGN UP USER

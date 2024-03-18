@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"; //Mongoose is a JavaScript library that provides a straight-forward, schema-based solution to model your application data with MongoDB
 
 const userSchema = new mongoose.Schema({
     fullName: {
