@@ -21,7 +21,7 @@ const protectRoute = async (req, res, next) => {
 
         req.user = user;//Attaching the user object to the req object makes the user's information readily available throughout the entire lifecycle of the request.
 
-        next();
+        next(); //call next function, sendMessage function in message.routes.js
 
     } catch (error) {
         console.log("Error in protectRoute middleware: ", error.message);
