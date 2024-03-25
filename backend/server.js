@@ -1,8 +1,10 @@
 import express from "express";//Express Server - better performance in applications that handle a lot of concurrent connections and I/O operations, such as real-time applications
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";//The cookie-parser middleware is used to parse Cookie header and populate req.cookies with an object keyed by the cookie names
+
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
@@ -16,6 +18,8 @@ app.use(cookieParser()); //This tells Express to use the cookie-parser on every 
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/users", userRoutes);
+
 
 
 // app.get("/", (req, res) => {
