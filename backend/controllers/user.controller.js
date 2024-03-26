@@ -1,5 +1,6 @@
 import User from '../models/user.model.js';
 
+//Get Users
 export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id; // we can get this thanks to protectRoute middleware
