@@ -30,7 +30,7 @@ const Login = () => {
                     {"Don't"} have an account?
                 </a>
                 <div>
-                    <button className='btn btn-block btn-sm mt-3 hover:bg-green-500'>Login</button>
+                <button className='btn btn-block btn-sm mt-3 border-0 hover:bg-green-500'>Login</button>
                 </div>
             </form>
         </div>
