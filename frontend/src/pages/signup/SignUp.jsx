@@ -86,7 +86,9 @@ const SignUp = () => {
             Already have an account?
           </Link>
           <div>
-            <button type="submit" className='btn btn-block btn-sm mt-3 border-0 hover:bg-green-500'>Sign Up</button>
+            {/* Disabling the button during this time prevents the user from clicking the button again and sending multiple requests. */}
+            <button type="submit" className='btn btn-block btn-sm mt-3 border-0 hover:bg-green-500' disabled={loading}> 
+              {loading ? <span className='loading loading-spinner'></span> : "Sign Up"}</button>
           </div>
 
         </form>
