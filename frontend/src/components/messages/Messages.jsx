@@ -1,13 +1,28 @@
-import React from 'react'
+import {React, useEffect, useRef} from 'react'
 import Message from './Message'
 import useGetMessages from '../../hooks/useGetMessages'
 import MessageSkeleton from '../skeletons/MessageSkeleton';
 
 const Messages = () => {
   const {messages, loading} = useGetMessages();
-  console.log("messages: ", messages);
+ 
+  //to show the end of the conversation when choosing a receiver, not the beginning.
+  const lastMessageRef = useRef();
+  //automatically scroll to an element in the DOM
+  useEffect(() => {
+    setTimeout(() => {
+      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }, [messages]);
+
   return (
     <div className='px-2 flex-1 overflow-auto'>
+        {!loading && messages.length > 0 && messages.map((message) => (
+          <div key={message._id} ref={lastMessageRef}>
+            <Message message={message} />
+          </div>
+        ))}
+
        {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
 
        {!loading && messages.length === 0 && (
