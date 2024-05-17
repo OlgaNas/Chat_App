@@ -20,7 +20,7 @@ io.on('connection', (socket)=>{
     const userId = socket.handshake.query.userId; //the handshake property of a socket object refers to the initial negotiation between the client and the server when a new connection is established. 
     if(userId != "undefined") userSocketMap[userId] = socket.id;
     
-    //emitting events to all connected clients
+    //emitting(sending) events to all connected clients
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
     //socket.on() is used to listen to the events. Can be used both on client and server side
